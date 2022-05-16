@@ -14,3 +14,4 @@ a {
 * {
   box-sizing: border-box;
 }
+.mainContainer { min-height: calc(100vh - 64px - 56px);}
