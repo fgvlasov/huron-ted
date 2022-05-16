@@ -1,10 +1,9 @@
-import FormLogin from '../../components/mephys/applicants/FormLogin'
+import { Heading, Stack } from "@chakra-ui/react";
 
 export default function Directors() {
-
   return (
-	  <>
-	  <FormLogin />
-	  </>
-    )
+    <Heading as="h1" size="2xl" noOfLines={1}>
+      Directors
+    </Heading>
+  );
 }

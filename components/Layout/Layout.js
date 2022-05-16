@@ -21,9 +21,10 @@ export default function Layout({ children }) {
         maxW={"75rem"}
         direction={["column", "row"]}
         spacing="24px"
+        justifyContent={"center"}
       >
         <LeftMenu />
-        {children}
+        <Stack p={10}>{children}</Stack>
       </Stack>
       <Footer />
     </Box>

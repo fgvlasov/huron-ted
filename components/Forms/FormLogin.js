@@ -1,5 +1,5 @@
 import { Formik, Field } from "formik";
-import { types } from "mobx-state-tree"
+import { types } from "mobx-state-tree";
 import {
   Box,
   Button,
@@ -9,18 +9,33 @@ import {
   FormLabel,
   FormErrorMessage,
   Input,
-  VStack
+  Select,
+  VStack,
+  useColorModeValue,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
 } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Flex bg="gray.100" align="center" justify="center" >
-      <Box bg="white" p={6} rounded="md" w={64}>
+    <Flex justify="center">
+      <Box
+        rounded={"lg"}
+        bg={useColorModeValue("white", "gray.700")}
+        boxShadow={"lg"}
+        p={8}
+      >
         <Formik
           initialValues={{
+            name: "",
+            gender: "",
+            birthyear: "",
             email: "",
             password: "",
-            rememberMe: false
+            rememberMe: false,
           }}
           onSubmit={(values) => {
             alert(JSON.stringify(values, null, 2));
@@ -40,6 +55,14 @@ export default function Home() {
                   />
                 </FormControl>
                 <FormControl>
+                  <FormLabel htmlFor="country">Country</FormLabel>
+                  <Select id="country" placeholder="Select country">
+                    <option>Canada</option>
+                    <option>USA</option>
+                    <option>Mexico</option>
+                  </Select>
+                </FormControl>
+                <FormControl>
                   <FormLabel htmlFor="gender">Your Gender</FormLabel>
                   <Field
                     as={Input}
@@ -48,18 +71,18 @@ export default function Home() {
                     type="gender"
                     variant="filled"
                   />
-                </FormControl>                
+                </FormControl>
                 <FormControl>
-                  <FormLabel htmlFor="birth-year">Year of Birth</FormLabel>
-                  <Field
-                    as={Input}
-                    id="birth-year"
-                    name="birth-year"
-                    type="birth-year"
-                    variant="filled"
-                  />
-                </FormControl>  
-				<FormControl>
+                  <FormLabel htmlFor="birthyear">Year of Birth</FormLabel>
+                  <NumberInput max={2010} min={1945}>
+                    <NumberInputField id="birthyear" />
+                    <NumberInputStepper>
+                      <NumberIncrementStepper />
+                      <NumberDecrementStepper />
+                    </NumberInputStepper>
+                  </NumberInput>{" "}
+                </FormControl>
+                <FormControl>
                   <FormLabel htmlFor="email">Email Address</FormLabel>
                   <Field
                     as={Input}
@@ -106,6 +129,5 @@ export default function Home() {
         </Formik>
       </Box>
     </Flex>
-
-  )
+  );
 }

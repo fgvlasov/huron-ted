@@ -1,7 +1,10 @@
+import { Heading, Stack } from "@chakra-ui/react";
 export default function Dashbord() {
   return (
-    <main className={styles.main}>
-      <h2 className={styles.title}>Click to choose your type</h2>
-    </main>
+    <>
+      <Heading as="h1" size="2xl" noOfLines={1}>
+        Dashbord
+      </Heading>
+    </>
   );
 }
