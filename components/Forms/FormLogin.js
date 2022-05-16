@@ -20,6 +20,13 @@ import {
 } from "@chakra-ui/react";
 
 export default function Home() {
+  function validateBirthYear(value) {
+    let error;
+    if (value < 1945 || value > 2010) {
+      error = "Year must be between 1945 and 2010";
+    }
+    return error;
+  }
   return (
     <Flex justify="center">
       <Box
@@ -31,6 +38,7 @@ export default function Home() {
         <Formik
           initialValues={{
             name: "",
+            country: "Canada",
             gender: "",
             birthyear: "",
             email: "",
@@ -44,7 +52,7 @@ export default function Home() {
           {({ handleSubmit, errors, touched }) => (
             <form onSubmit={handleSubmit}>
               <VStack spacing={4} align="flex-start">
-                <FormControl>
+                <FormControl isRequired>
                   <FormLabel htmlFor="name">Your Name</FormLabel>
                   <Field
                     as={Input}
@@ -54,7 +62,7 @@ export default function Home() {
                     variant="filled"
                   />
                 </FormControl>
-                <FormControl>
+                <FormControl isRequired>
                   <FormLabel htmlFor="country">Country</FormLabel>
                   <Select id="country" placeholder="Select country">
                     <option>Canada</option>
@@ -62,27 +70,31 @@ export default function Home() {
                     <option>Mexico</option>
                   </Select>
                 </FormControl>
-                <FormControl>
+                <FormControl isRequired>
                   <FormLabel htmlFor="gender">Your Gender</FormLabel>
-                  <Field
-                    as={Input}
-                    id="gender"
-                    name="gender"
-                    type="gender"
-                    variant="filled"
-                  />
+                  <Select id="gender" placeholder="Select your gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                  </Select>
                 </FormControl>
-                <FormControl>
+                <FormControl
+                  isRequired
+                  isInvalid={!!errors.birthyear && touched.birthyear}
+                >
                   <FormLabel htmlFor="birthyear">Year of Birth</FormLabel>
-                  <NumberInput max={2010} min={1945}>
+                  <NumberInput
+                    max={2010}
+                    min={1945}
+                    validate={validateBirthYear}
+                  >
                     <NumberInputField id="birthyear" />
                     <NumberInputStepper>
                       <NumberIncrementStepper />
                       <NumberDecrementStepper />
                     </NumberInputStepper>
-                  </NumberInput>{" "}
+                  </NumberInput>
                 </FormControl>
-                <FormControl>
+                <FormControl isRequired>
                   <FormLabel htmlFor="email">Email Address</FormLabel>
                   <Field
                     as={Input}
@@ -91,8 +103,12 @@ export default function Home() {
                     type="email"
                     variant="filled"
                   />
+                  <FormErrorMessage>{errors.email}</FormErrorMessage>
                 </FormControl>
-                <FormControl isInvalid={!!errors.password && touched.password}>
+                <FormControl
+                  isRequired
+                  isInvalid={!!errors.password && touched.password}
+                >
                   <FormLabel htmlFor="password">Password</FormLabel>
                   <Field
                     as={Input}
