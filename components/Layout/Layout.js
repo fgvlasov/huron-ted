@@ -22,13 +22,12 @@ export default function Layout({ children }) {
           maxW={"1200"}
           w={"100%"}
           direction={["column", "row"]}
-          spacing="24px"
           justifyContent={"center"}
         >
           <Box className="leftMenuNav" display={{ base: "none", md: "flex" }}>
             <NavMenu w={["100%", "25%"]} />
           </Box>
-          <Stack p={10} w={["100%", "75%"]}>
+          <Stack p={{ base: "5", md: "10" }} w={{ base: "100%", md: "75%" }}>
             {children}
           </Stack>
         </Stack>
