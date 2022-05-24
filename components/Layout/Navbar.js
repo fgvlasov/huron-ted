@@ -9,7 +9,7 @@ import {
   useDisclosure,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import NavMenu from "./NavMenu";
 
 export default function Navbar() {
@@ -39,19 +39,36 @@ export default function Navbar() {
           <Link href="/" fontSize={"24"}>
             <Image src="/logo.png" h={50} alt="NatMatch Version2" />
           </Link>
-          <Button
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"blue.400"}
-            _hover={{
-              bg: "grey.300",
-            }}
-            onClick={() => router.push("/auth/login")}
-          >
-            Login
-          </Button>
+          {router.pathname}
+          {router.pathname === "/auth/login" ? (
+            <Button
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"blue.400"}
+              _hover={{
+                bg: "grey.300",
+              }}
+              onClick={() => router.push("/auth/logout")}
+            >
+              Log Out
+            </Button>
+          ) : (
+            <Button
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"blue.400"}
+              _hover={{
+                bg: "grey.300",
+              }}
+              onClick={() => router.push("/auth/login")}
+            >
+              Login
+            </Button>
+          )}
         </HStack>
       </HStack>
       {isOpen ? (

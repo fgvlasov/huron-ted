@@ -3,6 +3,7 @@ import {
   chakra,
   Container,
   Stack,
+  Link,
   Text,
   useColorModeValue,
   VisuallyHidden,
@@ -48,6 +49,12 @@ export default function Footer() {
         align={{ base: "center", md: "center" }}
       >
         <Text>© 2022 NatMatch Version 2</Text>
+        <Box>
+          <Link px={3} href="/privacy">
+            Privacy Policy
+          </Link>
+          <Link href="/terms">Terms of Use</Link>
+        </Box>
       </Container>
     </Box>
   );
