@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Heading,
   Stack,
@@ -10,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 
 export default function AccountBlock({ ...props }) {
+  const [state, setState] = useState([]);
   return (
     <HStack
       alignItems={"flex-start"}
