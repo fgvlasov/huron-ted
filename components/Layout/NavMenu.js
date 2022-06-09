@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export default function NavMenu() {
   const router = useRouter();
   return (
-    <VStack as={"nav"} spacing={4} p={5} alignItems={"flex-start"}>
+    <VStack as={"nav"} spacing={4} px={5} py={10} alignItems={"flex-start"}>
       {navLinks.map((link) => (
         <Link
           key={link.title}
