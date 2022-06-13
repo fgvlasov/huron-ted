@@ -7,31 +7,32 @@ export default function Account() {
       <Heading as="h1" fontSize="4xl" noOfLines={1}>
         Account
       </Heading>
-      <hr />
+
       <AccountBlock
         title="Email"
         parameter="tester+app@natmatch.com"
         name="Humboldt Park Health"
-        rightButtonName="Edit"
+        rightButton="Edit"
+        isEditable
       />
       <AccountBlock
         title="Password"
         parameter="*******"
         name="Humboldt Park Health"
-        rightButtonName="Edit"
+        rightButton="Edit"
       />
       <AccountBlock
         title="Sequrity
 		Questions"
         parameter="tester+app@natmatch.com"
         name="Humboldt Park Health"
-        rightButtonName="Edit"
+        rightButton="Edit"
       />
       <AccountBlock
         title="Timezone"
         parameter="America/Eastern Time (US & Canada)"
         name="Humboldt Park Health"
-        rightButtonName="Edit"
+        rightButton="Edit"
       />
     </>
   );
