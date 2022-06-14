@@ -1,5 +1,5 @@
 import { Heading, Stack } from "@chakra-ui/react";
-import TrackInfoBlock from "../components/profile/TrackInfoBlock";
+import TrackInfoBlock from "../components/__common/TrackInfoBlock";
 
 export default function Privacy() {
   return (

@@ -16,7 +16,18 @@ export default function AccountBlock({ ...props }) {
   const [isShow, setIsShow] = useState(false);
 
   const handleClick = () => setIsShow((prev) => !prev);
-
+  const inputSwitch = (parameter) => {
+    switch (parameter) {
+      case "email":
+        return <InputEmail title="New Email" type="email" placeholder="" />;
+      case "password":
+        return (
+          <InputPassword title="New Password" type="password" placeholder="" />
+        );
+      default:
+        return <InputEmail title="New Email" type="email" placeholder="" />;
+    }
+  };
   return (
     <Box borderBottom="1px solid grey" py={1}>
       <HStack
@@ -36,12 +47,7 @@ export default function AccountBlock({ ...props }) {
           <Button onClick={handleClick}>{isShow ? "Close" : "Edit"}</Button>
         </Box>
       </HStack>
-      {isShow && (
-        <Box>
-          <InputEmail title="New Email" type="email" placeholder="" />
-          <InputPassword title="New Password" type="password" placeholder="" />
-        </Box>
-      )}
+      {isShow && <Box>{inputSwitch(props.type)}</Box>}
     </Box>
   );
 }

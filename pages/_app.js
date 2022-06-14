@@ -5,17 +5,21 @@ import theme from "./theme";
 import { useRouter } from "next/router";
 import { en } from "../locales/en";
 import { fr } from "../locales/fr";
+import { MatchProvider } from "../context/match";
+// https://blog.logrocket.com/guide-state-management-next-js/
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const t = router.locale === "en" ? en : fr;
 
   return (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>
+    <MatchProvider>
+      <ChakraProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
+    </MatchProvider>
   );
 }
 
