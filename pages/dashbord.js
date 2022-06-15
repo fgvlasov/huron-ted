@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FiHome, FiCheckCircle, FiUsers } from "react-icons/fi";
-import DashbordBlock from "../components/dashbord/DashbordBlock";
+import DashbordBlock from "../components/__common/DashbordBlock";
 
 export default function Dashbord() {
   return (

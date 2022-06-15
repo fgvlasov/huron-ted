@@ -9,8 +9,9 @@ import {
   Box,
   Button,
 } from "@chakra-ui/react";
-import InputEmail from "./InputEmail";
-import InputPassword from "./InputPassword";
+import AccountEmail from "./AccountEmail";
+import AccountPassword from "./AccountPassword";
+import AccountQuestions from "./AccountQuestions";
 
 export default function AccountBlock({ ...props }) {
   const [isShow, setIsShow] = useState(false);
@@ -19,17 +20,23 @@ export default function AccountBlock({ ...props }) {
   const inputSwitch = (parameter) => {
     switch (parameter) {
       case "email":
-        return <InputEmail title="New Email" type="email" placeholder="" />;
+        return <AccountEmail title="New Email" type="email" placeholder="" />;
       case "password":
         return (
-          <InputPassword title="New Password" type="password" placeholder="" />
+          <AccountPassword
+            title="New Password"
+            type="password"
+            placeholder=""
+          />
         );
+      case "questions":
+        return <AccountQuestions />;
       default:
-        return <InputEmail title="New Email" type="email" placeholder="" />;
+        return <AccountEmail title="New Email" type="email" placeholder="" />;
     }
   };
   return (
-    <Box borderBottom="1px solid grey" py={1}>
+    <Box variant="border-grey" py={1}>
       <HStack
         alignItems={"flex-start"}
         //minW={{ base: "100%", md: "50%" }}
@@ -43,6 +50,7 @@ export default function AccountBlock({ ...props }) {
             <Box className="trackName">{props.parameter}</Box>
           )}
         </VStack>
+
         <Box alignItems="end">
           <Button onClick={handleClick}>{isShow ? "Close" : "Edit"}</Button>
         </Box>

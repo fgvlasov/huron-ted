@@ -3,7 +3,7 @@ import {
   InputGroup,
   Stack,
   Button,
-  Link,
+  Box,
   InputLeftAddon,
   FormControl,
   InputLeftElement,
@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
-export default function InputEmail({ ...props }) {
+export default function AccountEmail({ ...props }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
@@ -34,6 +34,9 @@ export default function InputEmail({ ...props }) {
           <Input type={props.type} placeholder={props.placeholder} />
         </InputGroup>
       </FormControl>
+      <Box alignItems="end" align="end">
+        <Button>Save</Button>
+      </Box>
     </Stack>
   );
 }

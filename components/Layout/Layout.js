@@ -7,10 +7,11 @@ import { useMatchContext } from "../../context/match";
 
 export default function Layout({ children }) {
   const [match, setMatch] = useMatchContext();
-  const handleChange = (event) => {
+
+  function handleChange(event) {
     console.log(event.target.value);
     setMatch(event.target.value);
-  };
+  }
   return (
     <Box
       display="flex"
@@ -34,8 +35,6 @@ export default function Layout({ children }) {
             <NavMenu w={["100%", "25%"]} />
           </Box>
           <Stack p={{ base: "5", md: "10" }} w={{ base: "100%", md: "75%" }}>
-            <Box>{match}</Box>
-
             <Select
               placeholder="Select match"
               variant="filled"

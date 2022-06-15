@@ -5,6 +5,7 @@ import {
   Button,
   Link,
   InputLeftAddon,
+  Box,
   FormControl,
   InputLeftElement,
   InputRightElement,
@@ -15,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
-export default function InputPassword({ ...props }) {
+export default function AccountPassword({ ...props }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowClick = () => setShowPassword(!showPassword);
@@ -44,6 +45,9 @@ export default function InputPassword({ ...props }) {
           <Link href="/auth/forgot">forgot password?</Link>
         </FormHelperText>
       </FormControl>
+      <Box alignItems="end" align="end">
+        <Button>Save</Button>
+      </Box>
     </Stack>
   );
 }
