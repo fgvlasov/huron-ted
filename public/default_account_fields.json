@@ -1,0 +1,17 @@
+{
+	"email": {
+		"attr_label":
+			{
+			"_01_appic":  "Email",
+			"_02_caspr":  "Email_caspr"
+			
+			}
+		
+	},
+	"password": {
+		"attr_label": {
+			"_01_appic":  "Password",
+			"_02_caspr":  "Password_caspr"
+		}
+	}
+}

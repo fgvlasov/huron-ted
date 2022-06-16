@@ -1,4 +1,4 @@
-{"default_000__preset_value":{
+{
 		"attribute_template_header": 	{
 									"default":"HEADER_01",
 									"appic": "PL_HEADER_01",
@@ -232,4 +232,3 @@
 			"default":{"select_from_array_key1":"select_from_array_value1"}
 		}
 	}
-}

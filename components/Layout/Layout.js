@@ -34,15 +34,19 @@ export default function Layout({ children }) {
           <Box className="leftMenuNav" display={{ base: "none", md: "flex" }}>
             <NavMenu w={["100%", "25%"]} />
           </Box>
-          <Stack p={{ base: "5", md: "10" }} w={{ base: "100%", md: "75%" }}>
+          <Stack
+            justifyContent="flex-start"
+            p={{ base: "5", md: "10" }}
+            w={{ base: "100%", md: "75%" }}
+          >
             <Select
               placeholder="Select match"
               variant="filled"
               value={match}
               onChange={handleChange}
             >
-              <option value="appic">appic</option>
-              <option value="caspr">caspr</option>
+              <option value="_01_appic">appic</option>
+              <option value="_02_caspr">caspr</option>
             </Select>
             {children}
           </Stack>

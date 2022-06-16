@@ -25,13 +25,10 @@ export default function AccountBlock({ ...props }) {
           <Box>
             <AccountEmail
               title="New Email"
+              title_re="Confirm email"
               type="email"
               placeholder="Enter your new email"
-            />
-            <AccountEmail
-              title="Confirm email"
-              type="email"
-              placeholder="Re-Enter your new email"
+              placeholder_re="Re-Enter your new email"
             />
           </Box>
         );
@@ -82,14 +79,7 @@ export default function AccountBlock({ ...props }) {
                 </Button>
               </Box>
             </HStack>
-            {isShow && (
-              <Box>
-                {inputSwitch(props.type)}{" "}
-                <Box alignItems="end" align="flex-start" my={2}>
-                  <Button type="submit">Save</Button>
-                </Box>
-              </Box>
-            )}
+            {isShow && <Box>{inputSwitch(props.type)} </Box>}
           </form>
         )}
       </Formik>

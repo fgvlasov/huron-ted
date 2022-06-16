@@ -1,0 +1,8 @@
+{
+	"user":{
+		"email": "tester+app@natmatch.com",
+		"password": "somepassword",
+		"sequrity_answer1": "podff",
+		"sequrity_answer2": "podff"
+	}
+}
