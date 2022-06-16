@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Field } from "formik";
 import {
   InputGroup,
   Stack,
@@ -21,7 +22,7 @@ export default function AccountEmail({ ...props }) {
   const handleShowClick = () => setShowPassword(!showPassword);
 
   return (
-    <Stack spacing={4}>
+    <Stack spacing={4} py={2}>
       <FormControl>
         <Text mb="8px">{props.title}</Text>
         <InputGroup>
@@ -34,9 +35,6 @@ export default function AccountEmail({ ...props }) {
           <Input type={props.type} placeholder={props.placeholder} />
         </InputGroup>
       </FormControl>
-      <Box alignItems="end" align="end">
-        <Button>Save</Button>
-      </Box>
     </Stack>
   );
 }

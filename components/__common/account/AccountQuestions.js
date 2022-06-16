@@ -54,9 +54,6 @@ export default function AccountQuestions({ ...props }) {
           </Box>
         </HStack>
       </FormControl>
-      <Box alignItems="end" align="end">
-        <Button>Save</Button>
-      </Box>
     </Stack>
   );
 }
