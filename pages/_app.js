@@ -7,6 +7,7 @@ import { en } from "../locales/en";
 import { fr } from "../locales/fr";
 import { MatchProvider } from "../context/match";
 // https://blog.logrocket.com/guide-state-management-next-js/
+import DevTools from "mobx-react-devtools";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }) {
     <MatchProvider>
       <ChakraProvider theme={theme}>
         <Layout>
+          <DevTools />
           <Component {...pageProps} />
         </Layout>
       </ChakraProvider>

@@ -31,7 +31,7 @@ export default function AccountQuestions({ ...props }) {
           <Box w={["100%", "50%"]}>
             <Text mb="8px">Sequrity Answer 1</Text>
             <InputGroup>
-              <Input type={props.type} placeholder={props.placeholder} />
+              <Input type={props.type} placeholder={props.sequrity_answer_1} />
             </InputGroup>
           </Box>
         </HStack>
@@ -49,10 +49,13 @@ export default function AccountQuestions({ ...props }) {
           <Box w={["100%", "50%"]}>
             <Text mb="8px">Sequrity Answer 2</Text>
             <InputGroup>
-              <Input type={props.type} placeholder={props.placeholder} />
+              <Input type={props.type} placeholder={props.sequrity_answer_2} />
             </InputGroup>
           </Box>
         </HStack>
+        <Box alignItems="end" align="flex-start" my={2}>
+          <Button type="submit">Save</Button>
+        </Box>
       </FormControl>
     </Stack>
   );

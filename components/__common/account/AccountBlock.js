@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Formik, Field } from "formik";
+
 import {
   Heading,
   Stack,
@@ -13,6 +13,7 @@ import {
 import AccountEmail from "./AccountEmail";
 import AccountPassword from "./AccountPassword";
 import AccountQuestions from "./AccountQuestions";
+import AccountInput from "./AccountInput";
 
 export default function AccountBlock({ ...props }) {
   const [isShow, setIsShow] = useState(false);
@@ -22,67 +23,82 @@ export default function AccountBlock({ ...props }) {
     switch (parameter) {
       case "email":
         return (
-          <Box>
-            <AccountEmail
-              title="New Email"
-              title_re="Confirm email"
-              type="email"
-              placeholder="Enter your new email"
-              placeholder_re="Re-Enter your new email"
-            />
-          </Box>
+          <AccountEmail
+            title={props.title}
+            label_email_new={props.label_email_new}
+            label_email_confirm={props.label_email_confirm}
+            type={props.type}
+            placeholder_email_new={props.placeholder_email_new}
+            placeholder_email_confirm={props.placeholder_email_confirm}
+          />
+        );
+      case "text":
+        return (
+          <AccountInput
+            attr_label={props.attr_label}
+            attr_type={props.attr_type}
+            attr_placeholder={props.attr_placeholder}
+          />
         );
       case "password":
         return (
           <AccountPassword
             title="New Password"
+            title_re="Confirm New Password"
             type="password"
-            placeholder=""
+            placeholder="Enter your new password"
+            placeholder_re="Re-Enter your new password"
           />
         );
       case "questions":
-        return <AccountQuestions />;
+        return (
+          <AccountQuestions
+            sequrity_question_1={props.sequrity_question_1}
+            sequrity_answer_1={props.sequrity_answer_1}
+            sequrity_question_2={props.sequrity_question_2}
+            sequrity_answer_2={props.sequrity_answer_2}
+          />
+        );
       default:
         return <AccountEmail title="New Email" type="email" placeholder="" />;
     }
   };
   return (
-    <Box borderBottom="1px solid grey" py={1}>
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-          rememberMe: false,
-        }}
-        onSubmit={(values) => {
-          alert(JSON.stringify(values, null, 2));
-        }}
+    <Box borderBottom="1px solid grey" py={1} maxW="600px">
+      <Stack
+        alignItems={"flex-start"}
+        //minW={{ base: "100%", md: "50%" }}
+        justify={"space-between"}
+        direction={{ base: "column", md: "row" }}
       >
-        {({ handleSubmit, errors, touched }) => (
-          <form onSubmit={handleSubmit}>
-            <HStack
-              alignItems={"flex-start"}
-              //minW={{ base: "100%", md: "50%" }}
-              justify={"space-between"}
-            >
-              <Heading as="h3" fontSize="xl" w="110px" py={2}>
-                {props.title}
-              </Heading>
-              <VStack align={"flex-start"} minW={{ md: "50%" }} p={2}>
-                {props.parameter && !isShow && (
-                  <Box className="trackName">{props.parameter}</Box>
-                )}
-              </VStack>
-              <Box alignItems="end">
-                <Button my={2} onClick={handleClick}>
-                  {isShow ? "Close" : "Edit"}
-                </Button>
+        <Heading as="h3" fontSize="xl" minW="110px" pt={4}>
+          {props.title}
+        </Heading>
+        <HStack w="100%" justify={"space-between"}>
+          <Box align={"flex-start"} minW={{ md: "50%" }} p={2}>
+            {props.type == "questions" && !isShow && (
+              <Box>
+                {props.sequrity_question_1}
+                <br />
+                {props.sequrity_answer_1}
+                <br />
+                <br />
+                {props.sequrity_question_2}
+                <br />
+                {props.sequrity_answer_2}
               </Box>
-            </HStack>
-            {isShow && <Box>{inputSwitch(props.type)} </Box>}
-          </form>
-        )}
-      </Formik>
+            )}
+            {props.parameter && !isShow && <Box py={2}>{props.parameter}</Box>}
+            {isShow && props.type == "text" && <>{inputSwitch(props.type)} </>}
+          </Box>
+          <Box alignItems="end">
+            <Button my={2} onClick={handleClick}>
+              {isShow ? "Close" : "Edit"}
+            </Button>
+          </Box>
+        </HStack>
+      </Stack>
+      {isShow && props.type != "text" && <Box>{inputSwitch(props.type)} </Box>}
     </Box>
   );
 }
