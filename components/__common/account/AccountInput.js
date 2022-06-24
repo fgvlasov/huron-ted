@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import { Formik, Field } from "formik";
 import {
   InputGroup,
   Stack,
@@ -23,30 +22,12 @@ export default function AccountInput({ ...props }) {
 
   return (
     <Stack w="100%">
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-          rememberMe: false,
-        }}
-        onSubmit={(values) => {
-          //alert(JSON.stringify(values, null, 2));
-        }}
-      >
-        {({ handleSubmit, errors, touched }) => (
-          <form onSubmit={handleSubmit}>
-            <FormControl>
-              <HStack>
-                <Input
-                  type={props.attr_type}
-                  placeholder={props.attr_placeholder}
-                />
-                <Button type="submit">Save</Button>
-              </HStack>
-            </FormControl>
-          </form>
-        )}
-      </Formik>
+      <FormControl>
+        <HStack>
+          <Input type={props.attr_type} placeholder={props.attr_placeholder} />
+          <Button type="submit">Save</Button>
+        </HStack>
+      </FormControl>
     </Stack>
   );
 }

@@ -14,10 +14,11 @@ import AccountEmail from "./AccountEmail";
 import AccountPassword from "./AccountPassword";
 import AccountQuestions from "./AccountQuestions";
 import AccountInput from "./AccountInput";
+import AccountPhones from "./AccountPhones";
 
 export default function AccountBlock({ ...props }) {
   const [isShow, setIsShow] = useState(false);
-
+  //console.log(props);
   const handleClick = () => setIsShow((prev) => !prev);
   const inputSwitch = (parameter) => {
     switch (parameter) {
@@ -59,8 +60,30 @@ export default function AccountBlock({ ...props }) {
             sequrity_answer_2={props.sequrity_answer_2}
           />
         );
+      case "address":
+        return (
+          <AccountAddress
+            sequrity_question_1={props.sequrity_question_1}
+            sequrity_answer_1={props.sequrity_answer_1}
+            sequrity_question_2={props.sequrity_question_2}
+            sequrity_answer_2={props.sequrity_answer_2}
+          />
+        );
+      case "phones":
+        return (
+          <AccountPhones
+            title={props.title}
+            type={props.type}
+            primary_phone_id={props.primary_phone_id}
+            primary_phone_title={props.primary_phone_title}
+            primary_phone_placeholder={props.primary_phone}
+            alt_phone_id={props.alt_phone_id}
+            alt_phone_title={props.alt_phone_title}
+            alt_phone_placeholder={props.alt_phone}
+          />
+        );
       default:
-        return <AccountEmail title="New Email" type="email" placeholder="" />;
+        return <AccountInput title="Text" type="text" placeholder="" />;
     }
   };
   return (

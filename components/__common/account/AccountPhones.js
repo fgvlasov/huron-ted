@@ -20,54 +20,31 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
 } from "@chakra-ui/react";
-import { FaUserAlt, FaLock } from "react-icons/fa";
 import { InputText } from "../InputText";
 
-export default function AccountEmail({ ...props }) {
+export default function AccountPhones({ ...props }) {
   const [inputEmail, setInputEmail] = useState("");
   const [inputEmailConf, setInputEmailConf] = useState("");
   const [isTyped, setIsTyped] = useState(true);
-
+  //console.log(props);
   return (
     <Stack spacing={4} py={2}>
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-          rememberMe: false,
-        }}
-        onSubmit={(values) => {
-          //alert(JSON.stringify(values, null, 2));
-        }}
-      >
-        {({ handleSubmit, errors, touched }) => (
-          <form onSubmit={handleSubmit}>
-            <FormControl>
-              <InputText
-                id={props.email_new_id}
-                label={props.label_email_new}
-                labelPosition="left"
-                placeholder={props.placeholder_email_new}
-                leftElement="FaUserAlt"
-                variant="outline"
-                onChange={(event) => setInputEmail(event.target.value)}
-              />
-              <InputText
-                id={props.email_new_confirm}
-                label={props.label_email_confirm}
-                labelPosition="left"
-                placeholder={props.placeholder_email_confirm}
-                helperText=""
-                leftElement="FaUserAlt"
-                isDisabled="false"
-                isInvalid="false"
-                isReadOnly="false"
-                isRequired="false"
-                size="md"
-                variant="outline"
-                onChange={(event) => setInputEmail(event.target.value)}
-              />
-              {/*
+      <FormControl>
+        <InputText
+          id={props.primary_phone_id}
+          label={props.primary_phone_title}
+          placeholder={props.primary_phone_placeholder}
+          leftElement="PhoneIcon"
+          onChange={(event) => setInputEmail(event.target.value)}
+        />
+        <InputText
+          id={props.alt_phone_id}
+          label={props.alt_phone_title}
+          placeholder={props.alt_phone_placeholder}
+          leftElement="PhoneIcon"
+          onChange={(event) => setInputEmail(event.target.value)}
+        />
+        {/*
               <Text my="8px">{props.label_email_new}</Text>
               <InputGroup>
                 <InputLeftElement
@@ -104,24 +81,19 @@ export default function AccountEmail({ ...props }) {
                 />
               </InputGroup>
 			  */}
-            </FormControl>
-            <AlertDialog>
-              <AlertDialogOverlay>
-                <AlertDialogContent>
-                  <AlertDialogBody>
-                    Changing your email will change
-                  </AlertDialogBody>
-                </AlertDialogContent>
-              </AlertDialogOverlay>
-            </AlertDialog>
-            <Box alignItems="end" align="flex-start" my={2}>
-              <Button type="submit" disabled={isTyped}>
-                Save
-              </Button>
-            </Box>
-          </form>
-        )}
-      </Formik>
+      </FormControl>
+      <AlertDialog>
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogBody>Changing your email will change</AlertDialogBody>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
+      <Box alignItems="end" align="flex-start" my={2}>
+        <Button type="submit" disabled={isTyped}>
+          Save
+        </Button>
+      </Box>
     </Stack>
   );
 }
