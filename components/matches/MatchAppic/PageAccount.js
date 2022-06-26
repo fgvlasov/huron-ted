@@ -40,6 +40,7 @@ export default function Appic__PageAccount({ ...props }) {
           placeholder_email_confirm={
             data._000_022_email_confirm.attr_placeholder[props.match]
           }
+          helpText={data._000_020_email.helpText}
           rightButton="Edit"
           isEditable
         />
@@ -89,7 +90,7 @@ export default function Appic__PageAccount({ ...props }) {
       <AccountBlock
         title={data._000_012_phones.attr_title}
         type={data._000_012_phones.attr_type}
-        parameter={data_user.user.phone}
+        parameter={data_user.user.primary_phone_text}
         attr_title={data._000_012_phones.attr_title[props.match]}
         attr_label={data._000_012_phones.attr_label[props.match]}
         primary_phone_id={data._000_012_phones.primary_phone_id}

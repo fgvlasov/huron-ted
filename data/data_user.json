@@ -9,6 +9,8 @@
 		"first_name": "Adriana",
 		"last_name": "Crowford",
 		"primary_phone": "985025465",
-		"alt_phone": "985576735"
+		"alt_phone": "985576735",
+		"primary_phone_text": "985025465 (Primary)",
+		"alt_phone_text": "985576735 (Alt)"
 	}
 }

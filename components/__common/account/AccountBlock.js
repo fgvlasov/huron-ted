@@ -7,19 +7,25 @@ import {
   VStack,
   Icon,
   Flex,
+  Text,
   Box,
   Button,
+  IconButton,
+  CloseButton,
 } from "@chakra-ui/react";
+
 import AccountEmail from "./AccountEmail";
 import AccountPassword from "./AccountPassword";
 import AccountQuestions from "./AccountQuestions";
 import AccountInput from "./AccountInput";
 import AccountPhones from "./AccountPhones";
+import FieldHeading from "../FieldHeading";
 
 export default function AccountBlock({ ...props }) {
   const [isShow, setIsShow] = useState(false);
   //console.log(props);
   const handleClick = () => setIsShow((prev) => !prev);
+
   const inputSwitch = (parameter) => {
     switch (parameter) {
       case "email":
@@ -94,9 +100,7 @@ export default function AccountBlock({ ...props }) {
         justify={"space-between"}
         direction={{ base: "column", md: "row" }}
       >
-        <Heading as="h3" fontSize="xl" minW="110px" pt={4}>
-          {props.title}
-        </Heading>
+        <FieldHeading title={props.title} text={props.helpText} />
         <HStack w="100%" justify={"space-between"}>
           <Box align={"flex-start"} minW={{ md: "50%" }} p={2}>
             {props.type == "questions" && !isShow && (

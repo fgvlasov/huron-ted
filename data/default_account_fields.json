@@ -2,11 +2,12 @@
 	"_000_020_email": {
 		"attr_type": "email",
 		"attr_title": "Email",
+		"helpText" : "You can`t change your email",
 		"attr_label":
 			{
 			"_00":  "Email",
 			"_01_appic":  "Email",
-			"_02_caspr":  "Email_caspr"
+			"_02_caspr":  "Email"
 			}
 	},
 	"_000_021_email_new": {
@@ -15,7 +16,7 @@
 		"attr_label":
 			{
 			"_01_appic":  "New email",
-			"_02_caspr":  "New Email_caspr"
+			"_02_caspr":  "New Email"
 			},
 		"attr_placeholder":
 			{
@@ -29,7 +30,7 @@
 		"attr_label":
 			{
 			"_01_appic":  "Confirm email",
-			"_02_caspr":  "Confirm Email_caspr"
+			"_02_caspr":  "Confirm Email"
 			},
 		"attr_placeholder":
 			{

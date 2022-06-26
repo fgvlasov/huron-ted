@@ -1,25 +1,13 @@
-import { useState } from "react";
-
 import {
   InputGroup,
   Stack,
   Button,
   HStack,
-  Box,
-  InputLeftAddon,
-  FormControl,
-  InputLeftElement,
-  InputRightElement,
-  FormHelperText,
   Input,
-  InputRightAddon,
-  Text,
+  FormControl,
 } from "@chakra-ui/react";
-import { FaUserAlt, FaLock } from "react-icons/fa";
 
 export default function AccountInput({ ...props }) {
-  const [inputEmail, setInputEmail] = useState("");
-
   return (
     <Stack w="100%">
       <FormControl>
