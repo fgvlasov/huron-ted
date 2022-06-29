@@ -74,6 +74,26 @@
 		}			
 		
 	},
+	"_000_030_gender": {
+		"attr_type": "checkbox",
+		"attr_label":
+			{
+			"_00":  "Gender",
+			"_01_appic":  "Gender",
+			"_02_caspr":  "Gender"
+			
+			},
+		"genders": ["Male", "Female"],
+			
+		"attr_title": "Last name",
+		"attr_placeholder": 
+		{
+			"_00":  "Enter your Last name",
+			"_01_appic":  "Enter your Last name",
+			"_02_caspr":  "Enter your Last name"
+		}			
+		
+	},
 	"_000_012_phones": {
 		"attr_type": "phones",
 		"attr_label":

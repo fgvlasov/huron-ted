@@ -1,16 +1,20 @@
 import {
   FormControl,
   FormLabel,
-  Input,
+  Select,
+  Option,
+  Checkbox,
+  Box,
+  Text,
   InputGroup,
   InputLeftElement,
-  Box,
   FormHelperText,
+  propNames,
 } from "@chakra-ui/react";
 import { InputIcon } from "./InputIcon";
 
-// https://chakra-ui.com/docs/components/form/input
-export const InputText = ({
+// https://chakra-ui.com/docs/components/checkbox/usage
+export const InputCheckbox = ({
   id,
   label,
   labelPosition = "left",
@@ -29,7 +33,7 @@ export const InputText = ({
   placeholder,
   helperText,
 }) => (
-  <FormControl id={id}>
+  <FormControl id={id} py={2}>
     {label && (
       <FormLabel justifyContent={labelPosition} display="flex">
         {label}
@@ -47,16 +51,16 @@ export const InputText = ({
       size={size}
       variant={variant}
       placeholder={placeholder}
+      spacing="3"
     >
-      {_.map(values, ({ value, labelSelect }, index) => {
-        return (
-          <Option key={index + value} value={value}>
-            {labelSelect}
-          </Option>
-        );
-      })}
+      {values.map((option) => (
+        <Checkbox key={option} value={option} type="checkbox">
+          {leftElement && <InputIcon icon={leftElement} />}
+          <Text color="emphasized" fontWeight="medium" fontSize="sm">
+            {option}
+          </Text>
+        </Checkbox>
+      ))}
     </Select>
-
-    {helperText && <FormHelperText>{helperText}</FormHelperText>}
   </FormControl>
 );

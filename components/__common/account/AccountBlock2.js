@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Heading,
@@ -20,6 +20,15 @@ export default function AccountBlock2({ ...props }) {
   const [isShow, setIsShow] = useState(false);
   //console.log(props);
   const handleClick = () => setIsShow((prev) => !prev);
+
+  const [inputEmail, setInputEmail] = useState("");
+  const [inputEmailConf, setInputEmailConf] = useState("");
+  const [isTyped, setIsTyped] = useState(true);
+
+  useEffect(() => {
+    inputEmailConf == inputEmail ? setIsTyped(false) : setIsTyped(true);
+  }, [inputEmailConf, inputEmail]);
+
   return (
     <Box borderBottom="1px solid grey" py={1} maxW="600px">
       <Stack
@@ -44,7 +53,6 @@ export default function AccountBlock2({ ...props }) {
               </Box>
             )}
             {props.parameter && !isShow && <Box py={2}>{props.parameter}</Box>}
-            {isShow && props.type == "text" && <>{inputSwitch(props.type)} </>}
           </Box>
           <Box alignItems="end">
             <Button my={2} onClick={handleClick}>

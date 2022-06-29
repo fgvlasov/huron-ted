@@ -1,8 +1,8 @@
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 
-export const InputIcon = (icon = "") => {
-  console.log(icon);
+export const InputIcon = ({ icon }) => {
+  //console.log(icon);
   switch (icon) {
     case "FaUserAlt":
       return <FaUserAlt color="gray.300" />;
@@ -11,6 +11,6 @@ export const InputIcon = (icon = "") => {
     case "PhoneIcon":
       return <PhoneIcon color="gray.300" />;
     default:
-      return;
+      return <FaUserAlt color="gray.300" />;
   }
 };

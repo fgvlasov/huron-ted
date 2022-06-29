@@ -35,7 +35,6 @@ export const InputText = ({
         {label}
       </FormLabel>
     )}
-
     <InputGroup>
       {leftElement && (
         <InputLeftElement
@@ -43,7 +42,6 @@ export const InputText = ({
           children={<InputIcon icon="PhoneIcon" />}
         />
       )}
-
       <Input
         defaultValue={defaultValue}
         errorBorderColor={errorBorderColor}

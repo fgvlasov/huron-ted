@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Heading, Box, useColorModeValue } from "@chakra-ui/react";
 import AccountBlock from "../../__common/account/AccountBlock";
-import AccountBlock2 from "../../__common/account/AccountBlock";
+import AccountBlock2 from "../../__common/account/AccountBlock2";
 import data from "../../../data/default_account_fields.json";
 import data_user from "../../../data/data_user.json";
 import { SectionTwoFields } from "../../__common/SectionTwoFields";
 import { InputText } from "../../__common/InputText";
+import { InputCheckbox } from "../../__common/Checkbox";
 
 export default function CasprPageAccount({ ...props }) {
   return (
@@ -37,26 +38,30 @@ export default function CasprPageAccount({ ...props }) {
             labelPosition="center"
             placeholder={data._000_021_email_new.attr_placeholder[props.match]}
             helperText="Additional text 2"
+            onChange={(event) => setInputEmail(event.target.value)}
           />
           <InputText
-            id={data._000_022_email_new.id}
+            id={data._000_022_email_confirm.id}
             label={data._000_022_email_confirm.attr_label[props.match]}
             labelPosition="center"
             placeholder={
               data._000_022_email_confirm.attr_placeholder[props.match]
             }
             helperText="Additional text 2"
+            onChange={(event) => {
+              setInputEmailConf(event.target.value);
+            }}
           />
         </AccountBlock2>
 
-        <AccountBlock
+        <AccountBlock2
           title="Password"
           parameter={data_user.user.password}
           name="Password"
           type="password"
           buttonHide="false"
           rightButton="Edit"
-        />
+        ></AccountBlock2>
 
         <AccountBlock
           title="Sequrity
@@ -107,29 +112,24 @@ export default function CasprPageAccount({ ...props }) {
         attr_placeholder={data_user.user.phone}
         rightButton="Edit"
       />
-      <SectionTwoFields>
-        <InputText
-          id="1"
-          label="Label 1"
-          labelPosition="right"
-          defaultValue="text fof Label 1"
-          helperText="Additional text 1"
+      <AccountBlock2
+        type={data._000_030_gender.attr_type}
+        title={data._000_030_gender.attr_label[props.match]}
+        parameter={data_user.user.gender}
+        helpText={data._000_030_gender.helpText}
+        rightButton="Edit"
+      >
+        <InputCheckbox
+          id="10"
+          label="Choose your gender"
+          defaultValue="male"
           leftElement="FaUserAlt"
-          disabled="disabled"
-          isInvalid="isInvalid"
-          isReadOnly="isReadOnly"
-          isRequired="true"
+          placeholder="Choose your gender"
           size="md"
           variant="outline"
+          values={data._000_030_gender.genders}
         />
-        <InputText
-          id="2"
-          label="Label 2"
-          labelPosition="center"
-          placeholder="placeholder for Label 2"
-          helperText="Additional text 2"
-        />
-      </SectionTwoFields>
+      </AccountBlock2>
     </>
   );
 }
