@@ -103,29 +103,29 @@ export default function Appic__PageAccount({ ...props }) {
         attr_placeholder={data_user.user.phone}
         rightButton="Edit"
       />
-      <SectionTwoFields>
-        <InputText
-          id="1"
-          label="Label 1"
-          labelPosition="right"
-          defaultValue="text fof Label 1"
-          helperText="Additional text 1"
-          leftElement="FaUserAlt"
-          disabled="disabled"
-          isInvalid="isInvalid"
-          isReadOnly="isReadOnly"
-          isRequired="true"
-          size="md"
-          variant="outline"
-        />
-        <InputText
-          id="2"
-          label="Label 2"
-          labelPosition="center"
-          placeholder="placeholder for Label 2"
-          helperText="Additional text 2"
-        />
-      </SectionTwoFields>
+		<SectionTwoFields>
+			<InputText
+			id="1"
+			label="Label 1"
+			labelPosition="right"
+			defaultValue="text fof Label 1"
+			helperText="Additional text 1"
+			leftElement="FaUserAlt"
+			disabled="disabled"
+			isInvalid="isInvalid"
+			isReadOnly="isReadOnly"
+			isRequired="true"
+			size="md"
+			variant="outline"
+			/>
+			<InputText
+			id="2"
+			label="Label 2"
+			labelPosition="center"
+			placeholder="placeholder for Label 2"
+			helperText="Additional text 2"
+			/>
+		</SectionTwoFields>
     </>
   );
 }

@@ -17,12 +17,16 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
+import { useMatchContext } from "../../context/match";
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
 
 export default function AuthLogin() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showMenu, setShowMenu] = useMatchContext();
+  console.log(showMenu);
+  setShowMenu(() => showMenu === "false");
 
   const handleShowClick = () => setShowPassword(!showPassword);
 

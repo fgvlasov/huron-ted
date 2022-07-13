@@ -20,7 +20,7 @@ import {
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import * as yup from "yup";
 
-import { useForm2 } from "./useForm";
+import { useForm2 } from "../../components/useForm";
 
 const initialValues = {
   title: "mr",

@@ -18,6 +18,7 @@
     "@fontsource/source-sans-pro": "^4.5.9",
     "@mdx-js/react": "^2.1.1",
     "@xstate/react": "^3.0.0",
+    "classnames": "^2.3.1",
     "formik": "^2.2.9",
     "framer-motion": "^6.3.3",
     "mobx": "^6.6.0",

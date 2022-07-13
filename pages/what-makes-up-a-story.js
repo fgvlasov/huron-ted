@@ -1,4 +1,4 @@
-import { CopyBlock } from "react-code-blocks";
+//import { CopyBlock } from "react-code-blocks";
 
 export default function Story() {
   return (
@@ -56,13 +56,13 @@ export default function Story() {
         which can be used by addons.
       </p>
       <p>Lets start by adding the following:</p>
-      <CopyBlock
-        language="javascript"
-        text={
-          "// Button.stories.tsx import { ComponentMeta } from '@storybook/react' import { Button } from './Button' export default { title: 'Example/Button', component: Button, argTypes: { backgroundColor: { control: 'color' }, }, } as ComponentMeta&lt;typeof Button&gt;; // ComponentMeta automatically infers the props from Button			"
-        }
-        codeBlock
-      />
     </>
   );
 }
+/*<CopyBlock
+  language="javascript"
+  text={
+    "// Button.stories.tsx import { ComponentMeta } from '@storybook/react' import { Button } from './Button' export default { title: 'Example/Button', component: Button, argTypes: { backgroundColor: { control: 'color' }, }, } as ComponentMeta&lt;typeof Button&gt;; // ComponentMeta automatically infers the props from Button			"
+  }
+  codeBlock
+/>;*/

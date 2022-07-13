@@ -1,7 +1,7 @@
 import { useMemo, useCallback, useEffect } from "react";
 import { useMachine } from "@xstate/react";
 
-import { formMachine } from "../../components/VAOP/formMachine";
+import { formMachine } from "./VAOP/formMachine";
 
 export const useForm2 = ({
   initialValues = {},
