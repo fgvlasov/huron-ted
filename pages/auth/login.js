@@ -25,7 +25,6 @@ const CFaLock = chakra(FaLock);
 export default function AuthLogin() {
   const [showPassword, setShowPassword] = useState(false);
   const [showMenu, setShowMenu] = useMatchContext();
-  console.log(showMenu);
   setShowMenu(() => showMenu === "false");
 
   const handleShowClick = () => setShowPassword(!showPassword);

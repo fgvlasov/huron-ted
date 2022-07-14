@@ -1,5 +1,6 @@
 import {
   Heading,
+  Divider,
   Stack,
   HStack,
   VStack,
@@ -17,7 +18,7 @@ export default function Dashbord() {
       <Heading as="h1" fontSize="4xl" noOfLines={1}>
         Dashbord
       </Heading>
-      <hr />
+      <Divider />
       <DashbordBlock
         icon={FiHome}
         title="Track"
@@ -26,14 +27,14 @@ export default function Dashbord() {
         director="Lewis M. Santangelo DPM"
         rightButtonName="Switch"
       />
-      <hr />
+      <Divider />
       <DashbordBlock
         icon={FiCheckCircle}
         title="Status"
         text="The track is currently Active in the March"
         rightButtonName="Edit"
       />
-      <hr />
+      <Divider />
       <DashbordBlock
         icon={FiUsers}
         title="Positions"

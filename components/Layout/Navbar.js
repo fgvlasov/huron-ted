@@ -11,9 +11,12 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import NavMenu from "./NavMenu";
+import { useMatchContext } from "../../context/match";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [showMenu] = useMatchContext();
+
   const router = useRouter();
   return (
     <>
@@ -29,13 +32,15 @@ export default function Navbar() {
           maxW={"1200"}
           justifyContent={"space-between"}
         >
-          <IconButton
-            size={"md"}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
-            display={{ md: "none" }}
-            onClick={isOpen ? onClose : onOpen}
-          />
+          {showMenu && (
+            <IconButton
+              size={"md"}
+              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+              aria-label={"Open Menu"}
+              display={{ md: "none" }}
+              onClick={isOpen ? onClose : onOpen}
+            />
+          )}
           <Link href="/" fontSize={"24"}>
             <Image src="/logo.png" h={50} alt="NatMatch Version2" />
           </Link>
